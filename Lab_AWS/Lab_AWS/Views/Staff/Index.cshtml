@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Lab_AWS.Models.Staff>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Thông tin nhân viên</h2>
+<p>
+    <a asp-action="Create">+ Thêm thông tin nhân viên</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Họ và tên</th>
+            <th>SĐT liên lạc</th>
+            <th>Địa chỉ</th>
+            <th>Chức vụ</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdStaff">Cập nhật</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdStaff">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

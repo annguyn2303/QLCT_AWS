@@ -1,0 +1,34 @@
+﻿@model Lab_AWS.Models.Truckdetail
+@{
+    Layout = "~/Views/Shared/_LayoutStaff.cshtml";
+}
+<h4>Truckdetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Used">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdTruck" />
+            <input type="hidden" asp-for="IdProduct" />
+            <input type="hidden" asp-for="Inventory" />
+         @*   <div class="form-group">
+                <label asp-for="Inventory" class="control-label"></label>
+                <input asp-for="Inventory" class="form-control" />
+                <span asp-validation-for="Inventory" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Used" class="control-label"></label>
+                <input asp-for="Used" class="form-control" />
+                <span asp-validation-for="Used" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Xác nhận" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Truckinfo" asp-route-id ="@Model?.IdTruck">Hủy</a>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Lab_AWS.Models.Invoke>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Thông tin hóa đơn</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID Hóa đơn</th>
+            <th>Ngày lập</th>
+            <th>Nhân viên nhập hàng</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdInvoke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdStaff)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

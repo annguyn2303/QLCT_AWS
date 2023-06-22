@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Lab_AWS.Models.Truckdetail>
+@{
+    Layout = "~/Views/Shared/_LayoutStaff.cshtml";
+    string bienso = ViewBag.Value;
+}
+<div>
+    <h2>Chi tiết xe tải</h2>
+    <hr />
+    <h2>Biển số xe : @bienso </h2>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Tên sản phẩm
+                </th>
+                <th>
+                    Số lượng trong kho
+                </th>
+                <th>
+                    Số lượng đã sử dụng
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.product.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inventory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Used)
+                    </td>
+                    <td>
+                        
+                            <a asp-action="Used" asp-route-id="@item.IdProduct">Sử dụng</a>
+       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Index">Quay về</a>
+    </div>
+

@@ -1,0 +1,32 @@
+﻿@model Lab_AWS.Models.Staff
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="content">
+    <div class="row signup">
+        <div class="col-12">
+            <div class="card w-50 mb-4 mx-auto">
+                <h5 class="card-header text-center">Đăng Nhập</h5>
+                <div class="card-body">
+                    <form id="formAuthentication" class="mb-3" asp-action="Login" method="POST">
+
+                        <div class="mb-4 form-control1">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="email" asp-for="Email" placeholder="Enter your email or username" autofocus>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="mb-4 form-password-toggle form-control1">
+                            <label class="form-label" asp-for="Password">Mật Khẩu</label>
+                            <input type="password" id="password" class="form-control" asp-for="Password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <button class="d-grid w-100 submit" type="submit">Đăng Nhập</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

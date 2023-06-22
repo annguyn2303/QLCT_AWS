@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Lab_AWS.Models.Truck>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Kho xe tải</h2>
+<p>
+    <a asp-action="Create">+ Thêm xe</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Biển số xe
+            </th>
+            <th>
+                Người phụ trách xe
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicensePlates)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.staff.Name)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.IdTruck">Chi tiết</a>|
+                <a asp-action="Delete" asp-route-id="@item.IdTruck">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

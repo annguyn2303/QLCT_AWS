@@ -1,0 +1,52 @@
+﻿@model Lab_AWS.Models.Invoke
+@{
+    Layout = "~/Views/Shared/_LayoutStaff.cshtml";
+    string idstaff = ViewBag.idstaff;
+}
+<h4>Tạo hóa đơn nhập hàng</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdInvoke" class="control-label">ID Hóa Đơn</label>
+                <input asp-for="IdInvoke" class="form-control" />
+                <span asp-validation-for="IdInvoke" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datetime" class="control-label">Ngày tạo</label>
+                <input asp-for="Datetime" class="form-control" />
+                <span asp-validation-for="Datetime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdStaff" class="control-label">ID Nhân viên</label>
+                <input asp-for="IdStaff" class="form-control" value="@idstaff"/>
+                <span asp-validation-for="IdStaff" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProduct" class="control-label">ID Sản phẩm</label>
+                <input asp-for="IdProduct" class="form-control" />
+                <span asp-validation-for="IdProduct" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label">Số lượng nhập</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Trạng thái</label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Staff" asp-controller="Login">Quay lại</a>
+</div>
+
